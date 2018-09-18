@@ -6,16 +6,24 @@ xhr.open("GET", "https://swapi.co/api/");
 
 xhr.send();
 
+function setData(jsonData) {
+    data = jsonData;
+    console.log(data);
+}
+
 xhr.onreadystatechange = function() {           //xhr object maintains an internal state as it completes various parts of the request operation
     if (this.readyState == 4 && this.status == 200) {
-        data = this.responseText;
+        setData(JSON.parse(this.responseText));
+        //data = this.responseText;
         //console.log(JSON.parse(this.responseText));
         //console.log(typeof(JSON.parse(this.responseText)));
         //console.log(typeof(this.responseText)); in inspect element this code showed a string in console
+        
+        
     }
 };
 
-console.log(data);
+
 /*
 var xhr = new XMLHttpRequest();         //xml = extensible markup language
 
