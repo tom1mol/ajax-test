@@ -1,3 +1,22 @@
+// json.parse section
+var xhr = new XMLHttpRequest();         //xml = extensible markup language
+var data;
+
+xhr.open("GET", "https://swapi.co/api/");
+
+xhr.send();
+
+xhr.onreadystatechange = function() {           //xhr object maintains an internal state as it completes various parts of the request operation
+    if (this.readyState == 4 && this.status == 200) {
+        data = this.responseText;
+        //console.log(JSON.parse(this.responseText));
+        //console.log(typeof(JSON.parse(this.responseText)));
+        //console.log(typeof(this.responseText)); in inspect element this code showed a string in console
+    }
+};
+
+console.log(data);
+/*
 var xhr = new XMLHttpRequest();         //xml = extensible markup language
 
 xhr.open("GET", "https://swapi.co/api/");
@@ -10,22 +29,19 @@ xhr.onreadystatechange = function() {           //xhr object maintains an intern
     }
 };
 
-
-
+*/
 
 /*
-var xhr = new XMLHttpRequest(); //inbuilt object that JS provides to allow us to consume the APIs. gives us methods to open/send connections
+var xhr = new XMLHttpRequest();         //xml = extensible markup language
 
-xhr.onreadystatechange = function() {           //when state OF xhr object changes...
-    if (this.readyState == 4 && this.status == 200) {  //run check to see if readyState = 4 and status = 200 THEN run line below. 4 means completed. 200 status means it was ok
-        document.getElementById("data").innerHTML = this.responseText;           
-        
-    }
-};
-
-xhr.open("GET", "https://swapi.co/api/");                                             // open up connection..method=GET, then the URL
+xhr.open("GET", "https://swapi.co/api/");
 
 xhr.send();
 
-*/
+xhr.onreadystatechange = function() {           //xhr object maintains an internal state as it completes various parts of the request operation
+    if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("data").innerHTML = this.responseText;
+    }
+};
 
+*/
