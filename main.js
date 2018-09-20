@@ -14,9 +14,17 @@ function getData(type, cb) {
     };
 }
 
-function writeToDocument(type) {
+function writeToDocument(type) {                //type = people, planets, species etc.
+    var el = document.getElementById("data");
+    el.innerHTML = "";                          //"" = empty string
+    
     getData(type, function(data) {
-        document.getElementById("data").innerHTML = data;
+        data = data.results;
+        
+        data.forEach(function(item) {
+            el.innerHTML += "<p>" + item.name + "</p>";
+        });
+        
     });
 }
 
